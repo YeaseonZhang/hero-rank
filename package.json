@@ -1,0 +1,15 @@
+{
+  "name": "hero-rank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "check": "node src/index.js"
+  },
+  "author": "taylor",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.2"
+  }
+}
