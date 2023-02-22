@@ -13,7 +13,7 @@ const heroRankListMap = {};
  * @params {string} area - androidQ, iosQ, androidWx, iosWx
  * @parmas {string} topInfo - top100, top50, top10
  */
-const init = async (heroInfo, area, topInfo) => {
+const check = async (heroInfo, area, topInfo) => {
   for (const province of districtsMap) {
     try {
       console.log(`获取${province.name}排名信息...`);
@@ -69,9 +69,6 @@ const rankSort = async (heroName, area, topInfo) => {
 
   await writeFile('sortProvince.json', JSON.stringify(sortPRankList, null, 2));
 
-  // 取最低的几个省
-  const lowestNum = 5;
-
   const lowestProvince = sortPRankList.slice(-lowestNum);
   console.log(
     `${heroName}-${area} ${topInfo}金牌最低的${lowestNum}个省, ${new Date().toLocaleString()}`
@@ -79,4 +76,6 @@ const rankSort = async (heroName, area, topInfo) => {
   console.log(lowestProvince);
 };
 
-init(heroMap.小乔, 'iosWx', 'top100');
+// 取最低的几个省
+const lowestNum = 10;
+check(heroMap.莱西奥, 'iosWx', 'top100');
